@@ -6,4 +6,91 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+<h:head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></link>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+
+
+        tr:nth-child(even){background-color: #f2f2f2}
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</h:head>
+<h:body>
+
+
+
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+
+
+        <a class="navbar-brand" href="index.xhtml">
+            <img src="pic.png" alt="logo" style="width:40px;"></img>
+        </a>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <h:form>
+                        <h:commandLink styleClass="nav-link" rendered="#{MyBean.isloggedIn}" action="index.xhtml?faces-redirect=true"  value="Logout"></h:commandLink>
+                    </h:form>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <h:form actoin ="#{MyBean.Fetch()}">
+        <h:dataTable class="manage-table resumes responsive-table" actoin ="#{MyBean.Fetch()}" >
+
+
+
+            <tr>
+                <th><i class="fa fa-user"></i>pid</th>
+                <th><i class="fa fa-user"></i>Student Name</th>
+                <th><i class="fa fa-file-email"></i>Student Email</th>
+                <th><i class="fa fa-map-marker"></i> Address</th>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="title" value="#{MyBean.User.pid}"></td>
+                <td class="title"><a value="#{MyBean.User.StudentName}"></a></td>
+                <td value="#{MyBean.User.StudentEmail}"></td>
+                <td value="#{MyBean.User.address}"></td>
+
+
+
+                <td  class="action">
+                    <h:commandButton value="Delete"/>
+            </td>
+        </tr>
+    </h:dataTable>
+
+
+</h:form>
+
+</h:body>
+
 </html>

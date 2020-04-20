@@ -24,7 +24,7 @@ public class DbConnection {
         }
     }
 
-    public void registerUser(String name,String email,String password){
+    public ResultSet registerUser(String name, String email, String password){
         try {
             String sqlQuery = "INSERT INTO user('name','email','password') VALUES(?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
@@ -39,6 +39,7 @@ public class DbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public void updateRecord(int id,String firstName,String lastName,String email){
